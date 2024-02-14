@@ -1,0 +1,58 @@
+<!-- Update Employee Data Form -->
+
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <!-- Form for updating employee data -->
+    <form action="/dashboard/admin/update/?id=<%= employee._id %>" method="POST" class="col-12 col-md-6 col-lg-5 p-4 mt-4 shadow rounded bg-light">
+      <!-- Heading -->
+      <div class="text-center mb-4">
+        <h1 class="text-primary">Update Employee</h1>
+      </div>
+
+      <!-- Name Input -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name" value="<%= employee.name %>" required>
+      </div>
+
+      <!-- Email Input -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" name="email" id="email" value="<%= employee.email %>" required>
+      </div>
+
+      <!-- Role Dropdown -->
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select class="form-select" name="role" aria-label="Default select example" style="background-color: #CEE7FF;">
+          <!-- Role options -->
+          <option value="Employee" <% if (employee.role === 'Employee') { %>selected<% } %>>Employee</option>
+          <option value="Admin" <% if (employee.role === 'Admin') { %>selected<% } %>>Admin</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100" style="background-color: #3498db;">Update</button>
+    </form>
+
+    <!-- Feedbacks Section -->
+    <div class="col-12 col-md-5">
+      <!-- Heading for feedbacks -->
+      <h2 class="text-center my-2">Feedbacks by Others for Employee</h2>
+
+      <!-- List of feedbacks -->
+      <div class="w-100 d-flex flex-column flex-wrap justify-content-center align-items-center">
+        <% for (j of feedbacks) { %>
+          <div class="card w-100 m-2" style="background-color: #DAF5FF;">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p class="fw-semibold"><%= j.comment %></p>
+                <footer class="blockquote-footer"><%= j.reviewer.name %></footer>
+              </blockquote>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
