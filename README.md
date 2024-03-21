@@ -17,5 +17,11 @@
 
 - Self explanatory documentation
 
-### To run the app just clone the repository or download it 
-### and use the command - npm install
+
+## To run the app
+
+- Clone the repository or download it and use the command "npm install" to install required packages
+
+- Edit the port address and db address according to your machine
+
+- Use "npm start" command to run the application
